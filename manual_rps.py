@@ -25,7 +25,8 @@ class choice:
 
             if(user_choice in list_of_choices):
                 print("reached if")
-                break
+                return user_choice
+                
             else:
                 print("reached else")
                 continue

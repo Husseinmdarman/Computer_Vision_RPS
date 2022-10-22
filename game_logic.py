@@ -12,7 +12,7 @@ class GameLogic:
     """       
        
 
-    result = {'rock' : {"rock" : "draw", "paper" : "loses", "scissors" : "wins" },
+    _result = {'rock' : {"rock" : "draw", "paper" : "loses", "scissors" : "wins" },
           'paper' : {"paper" : "draw", "scissors" : "loses", "rock" : "wins" },
           'scissors' : {"scissors" : "draw", "rock" : "loses", "paper" : "wins" }}
     
@@ -33,7 +33,7 @@ class GameLogic:
         Returns the winner between the player and computer
         """
 
-        player_outcome = GameLogic.result[self.player_choice][self.computer_choice]
+        player_outcome = GameLogic._result[self.player_choice][self.computer_choice]
         
         if(player_outcome == "wins"):
             return [player_outcome, "loses"]
