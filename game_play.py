@@ -12,7 +12,10 @@ def play():
     game_play = game_logic.GameLogic(computer_choice, player_choice)
     winner = game_play.get_winner()
     print(winner)
-     
+
+if __name__ == "__main__": 
+    play()
+    pass    
     
 
 

@@ -2,6 +2,7 @@
 import cv2
 from keras.models import load_model
 import numpy as np
+import time as t
 
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
@@ -61,6 +62,10 @@ class prediction_module:
 def get_prediction():
     prediction_new = prediction_module()
     window = Output_window()
+    timenow = t.time()
+    print(timenow)
+    localtimenow = t.localtime(timenow)
+    localtimenow_inSeconds = localtimenow.tm_sec
     while True:
         
         normalized_image = window.capture_window()
@@ -69,6 +74,17 @@ def get_prediction():
         window.update_window()
         print(converted_prediction)
         
+        timedifference = t.time()
+        
+        timeddiff = t.localtime(timedifference)
+        
+        localtimediff_inSeconds = timeddiff.tm_sec
+        
+        if localtimenow_inSeconds - localtimediff_inSeconds >= 10:
+            break
+        
+        elif localtimenow_inSeconds - localtimediff_inSeconds <= -10:
+            break
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     window.close_window()

@@ -1,6 +1,7 @@
 
 # %%
 import random
+import camera_rps
 
 class choice: 
 
@@ -18,18 +19,20 @@ class choice:
         """
      Return choice made by the user 
         """
-        while(True):
-            list_of_choices = ["rock","paper","scissors"]
-            user_choice = input("Please choose an option: ")
-            user_choice = user_choice.lower()
+        choice = camera_rps.get_prediction()
+        return choice 
+        # while(True):
+        #     list_of_choices = ["rock","paper","scissors"]
+        #     user_choice = input("Please choose an option: ")
+        #     user_choice = user_choice.lower()
 
-            if(user_choice in list_of_choices):
-                print("reached if")
-                return user_choice
+        #     if(user_choice in list_of_choices):
+        #         print("reached if")
+        #         return user_choice
                 
-            else:
-                print("reached else")
-                continue
+        #     else:
+        #         print("reached else")
+        #         continue
 
     
 # %%
