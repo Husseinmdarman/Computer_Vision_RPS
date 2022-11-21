@@ -80,11 +80,11 @@ def get_prediction():
         
         localtimediff_inSeconds = timeddiff.tm_sec
         
-        if localtimenow_inSeconds - localtimediff_inSeconds >= 10:
+        if localtimenow_inSeconds - localtimediff_inSeconds >= 12 or localtimenow_inSeconds - localtimediff_inSeconds <= -12:
             break
         
-        elif localtimenow_inSeconds - localtimediff_inSeconds <= -10:
-            break
+        # elif localtimenow_inSeconds - localtimediff_inSeconds <= -15:
+        #     break
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     window.close_window()
